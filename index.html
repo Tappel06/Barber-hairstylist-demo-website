@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron & Edge | Premium Barbershop & Grooming</title>
+    <style>
+        /* CSS Variables for a Premium, Sleek Theme */
+        :root {
+            --primary: #d4af37; /* Metallic Gold */
+            --primary-hover: #b5952f;
+            --dark-bg: #111111;
+            --darker-bg: #0a0a0a;
+            --light-text: #f4f4f5;
+            --muted-text: #a1a1aa;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Top Promo Banner */
+        .promo-banner {
+            background-color: var(--primary);
+            color: #000;
+            text-align: center;
+            padding: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: #000;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #000;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.9) 30%, rgba(10, 10, 10, 0.4)), 
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--muted-text);
+        }
+
+        /* General Sections */
+        .section-pad { padding: 6rem 5%; }
+        .text-center { text-align: center; }
+        
+        .section-title { 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-title span { color: var(--primary); }
+        
+        .section-subtitle { 
+            color: var(--muted-text); 
+            margin-bottom: 4rem; 
+            font-size: 1.1rem; 
+            max-width: 600px; 
+            margin-inline: auto; 
+        }
+
+        /* Services Menu */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-item-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .menu-item-details p {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+        }
+
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        /* The Masters / Team */
+        .team-section { background-color: var(--darker-bg); }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #333;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        /* Vibrant Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            transition: background 0.3s;
+        }
+
+        .gallery-item:hover::before { background: rgba(0,0,0,0.1); }
+
+        /* Booking Section */
+        .booking-section {
+            background: linear-gradient(rgba(17, 17, 17, 0.95), rgba(17, 17, 17, 0.95)), 
+                        url('https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .booking-info h2 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+        .booking-info p { color: var(--muted-text); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        
+        .booking-form {
+            background: var(--card-bg);
+            padding: 3rem;
+            border: 1px solid #333;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-text); }
+        .form-group input, .form-group select {
+            width: 100%; padding: 1rem; background-color: var(--dark-bg);
+            border: 1px solid #333; color: var(--light-text); font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none; border-color: var(--primary);
+        }
+
+        footer {
+            background: #000; text-align: center; padding: 3rem 5%; color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .booking-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">
+        Late August Special: Free Hot Towel Treatment with any Premium Fade
+    </div>
+
+    <header>
+        <a href="#" class="logo">Iron<span>&</span>Edge</a>
+        <a href="#book" class="btn">Book a Chair</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Masterful Cuts.<br>Classic Vibe.</h1>
+            <p>Experience precision grooming, hot lather shaves, and an atmosphere built for the modern gentleman.</p>
+            <div style="display: flex; gap: 1rem;">
+                <a href="#book" class="btn">Book Now</a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-pad">
+        <div class="text-center">
+            <h2 class="section-title">The <span>Menu</span></h2>
+            <p class="section-subtitle">Precision, patience, and premium products go into every service.</p>
+        </div>
+        
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>Haircuts</h3>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Classic Cut</h4>
+                        <p>Tailored cut, neck shave, styling.</p>
+                    </div>
+                    <div class="menu-item-price">R 250</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Skin Fade</h4>
+                        <p>Zero fade with clippers or foil, crisp line up.</p>
+                    </div>
+                    <div class="menu-item-price">R 280</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Father & Son</h4>
+                        <p>Two classic cuts booked together.</p>
+                    </div>
+                    <div class="menu-item-price">R 420</div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Beard & Shave</h3>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Beard Sculpting</h4>
+                        <p>Trim, shape, line up, and beard oil finish.</p>
+                    </div>
+                    <div class="menu-item-price">R 150</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Traditional Hot Shave</h4>
+                        <p>Hot towels, straight razor, soothing balm.</p>
+                    </div>
+                    <div class="menu-item-price">R 200</div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>The Executive Package</h4>
+                        <p>Haircut, hot shave, wash, and shoulder massage.</p>
+                    </div>
+                    <div class="menu-item-price">R 450</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery (Guaranteed working Unsplash images) -->
+    <section class="section-pad team-section">
+        <div class="text-center">
+            <h2 class="section-title">The <span>Atmosphere</span></h2>
+            <p class="section-subtitle">A glimpse inside the shop.</p>
+        </div>
+        <div class="gallery-grid">
+            <!-- Image 1: Barber holding clippers near client -->
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <!-- Image 2: Close up of styling/combing -->
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+            <!-- Image 3: Barber shop vintage chair interior -->
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="book" class="section-pad booking-section">
+        <div class="booking-info">
+            <h2>Reserve Your <span>Time</span></h2>
+            <p>Walk-ins are always welcome, but appointments guarantee your spot in the chair. Select your preferred service and time.</p>
+            
+            <div style="margin-top: 2rem; border-left: 2px solid var(--primary); padding-left: 1.5rem;">
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; text-transform: uppercase;">Location</h4>
+                <p style="color: var(--light-text); margin-bottom: 1.5rem;">Central Business District<br>Kempton Park, Gauteng</p>
+                
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; text-transform: uppercase;">Hours</h4>
+                <p style="color: var(--light-text);">Mon-Fri: 08:00 - 18:00<br>Saturday: 08:00 - 14:00<br>Sunday: Closed</p>
+            </div>
+        </div>
+
+        <div class="booking-form">
+            <h3 style="margin-bottom: 2rem; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">Appointment Request</h3>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required placeholder="082 123 4567">
+                </div>
+                <div class="form-group">
+                    <label>Service Required</label>
+                    <select name="service">
+                        <option value="classic">Classic Cut</option>
+                        <option value="fade">Skin Fade</option>
+                        <option value="beard">Beard Sculpting</option>
+                        <option value="shave">Traditional Hot Shave</option>
+                        <option value="executive">The Executive Package</option>
+                    </select>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>Preferred Date</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Time</label>
+                        <select name="time">
+                            <option value="morning">Morning (08:00 - 12:00)</option>
+                            <option value="afternoon">Afternoon (12:00 - 16:00)</option>
+                            <option value="evening">Late (16:00 - 18:00)</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Confirm Request</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Iron & Edge Barbershop. Crafted for style.</p>
+    </footer>
+
+</body>
+</html>
